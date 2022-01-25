@@ -1,10 +1,12 @@
 package com.karthiksankar.actmobile.ui.country
 
 import androidx.compose.foundation.Image
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
-import androidx.compose.material3.Text
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.size
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -13,7 +15,7 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.karthiksankar.actmobile.R
 import com.karthiksankar.actmobile.data.Country
-import com.karthiksankar.actmobile.ui.theme.ActMobileTheme
+import com.karthiksankar.actmobile.ui.ActMobileScreen
 
 @Composable
 fun CountryItem(
@@ -35,7 +37,7 @@ fun CountryItem(
         Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.spacing_large)))
         Text(
             text = country.name,
-            style = MaterialTheme.typography.titleMedium,
+            style = MaterialTheme.typography.h6,
             modifier = Modifier.weight(1f)
         )
     }
@@ -44,12 +46,7 @@ fun CountryItem(
 @Preview
 @Composable
 private fun PreviewCountryItem() {
-    ActMobileTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        ) {
-            CountryItem(Country("IN", "India"))
-        }
+    ActMobileScreen {
+        CountryItem(Country("IN", "India"))
     }
 }

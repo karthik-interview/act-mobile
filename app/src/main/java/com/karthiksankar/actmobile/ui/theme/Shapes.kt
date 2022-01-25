@@ -1,11 +1,11 @@
 package com.karthiksankar.actmobile.ui.theme
 
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.res.dimensionResource
-import com.karthiksankar.actmobile.R
+import androidx.compose.material.Shapes
+import androidx.compose.ui.unit.dp
 
-object Shapes {
-    @Composable
-    fun medium() = RoundedCornerShape(dimensionResource(id = R.dimen.item_shape_corner))
-}
+val Shapes = Shapes(
+    small = RoundedCornerShape(4.dp),
+    medium = RoundedCornerShape(8.dp),
+    large = RoundedCornerShape(12.dp)
+)

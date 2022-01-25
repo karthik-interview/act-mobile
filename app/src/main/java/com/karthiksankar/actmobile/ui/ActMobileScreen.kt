@@ -1,8 +1,8 @@
 package com.karthiksankar.actmobile.ui
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Surface
+import androidx.compose.material.MaterialTheme
+import androidx.compose.material.Surface
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.karthiksankar.actmobile.ui.theme.ActMobileTheme
@@ -14,7 +14,7 @@ fun ActMobileScreen(
     ActMobileTheme {
         Surface(
             modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
+            color = MaterialTheme.colors.background
         ) {
             content()
         }

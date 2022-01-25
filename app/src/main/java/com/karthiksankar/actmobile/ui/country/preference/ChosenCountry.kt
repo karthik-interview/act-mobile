@@ -1,4 +1,4 @@
-package com.karthiksankar.actmobile.ui.picker
+package com.karthiksankar.actmobile.ui.country.preference
 
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -13,6 +13,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.karthiksankar.actmobile.R
 import com.karthiksankar.actmobile.data.Country
 import com.karthiksankar.actmobile.ui.ActMobileScreen
+import com.karthiksankar.actmobile.ui.country.CountryItem
 import com.karthiksankar.actmobile.ui.theme.Shapes
 
 @Composable

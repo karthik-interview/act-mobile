@@ -1,4 +1,4 @@
-package com.karthiksankar.actmobile.ui.picker
+package com.karthiksankar.actmobile.ui.country
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*

@@ -1,4 +1,4 @@
-package com.karthiksankar.actmobile.ui.picker
+package com.karthiksankar.actmobile.ui.country.preference
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -16,7 +16,7 @@ import com.karthiksankar.actmobile.data.Country
 import com.karthiksankar.actmobile.ui.ActMobileScreen
 
 @Composable
-fun CountryScreen(
+fun CountryPreferenceScreen(
     selectedCountry: Country,
     modifier: Modifier = Modifier,
 ) {
@@ -42,7 +42,7 @@ fun CountryScreen(
 @Composable
 private fun PreviewCountryScreen() {
     ActMobileScreen {
-        CountryScreen(
+        CountryPreferenceScreen(
             Country("IN", "India"),
             Modifier.fillMaxSize()
         )

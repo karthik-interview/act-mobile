@@ -1,6 +1,9 @@
 package com.karthiksankar.actmobile.data
 
+import com.google.gson.annotations.SerializedName
+import java.io.Serializable
+
 data class CountriesResponse(
-    val code: Int,
-    val result: List<Country>
-)
+    @SerializedName("code") val code: Int,
+    @SerializedName("result") val result: List<Country>
+) : Serializable

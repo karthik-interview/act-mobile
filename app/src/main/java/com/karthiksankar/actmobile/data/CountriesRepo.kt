@@ -3,9 +3,13 @@ package com.karthiksankar.actmobile.data
 import android.content.Context
 import com.google.gson.Gson
 import com.karthiksankar.actmobile.R
+import dagger.hilt.android.qualifiers.ApplicationContext
+import javax.inject.Inject
+import javax.inject.Singleton
 
-class CountriesRepo(
-    private val context: Context,
+@Singleton
+class CountriesRepo @Inject constructor(
+    @ApplicationContext private val context: Context,
     private val gson: Gson,
 ) {
 

@@ -1,14 +1,12 @@
 package com.karthiksankar.actmobile.ui.country.preference
 
-import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.karthiksankar.actmobile.R
@@ -29,7 +27,7 @@ fun CountryPreferenceScreen(
             text = stringResource(id = R.string.title_your_region),
             style = MaterialTheme.typography.body1,
         )
-
+        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.spacing_large)))
         ChosenCountry(
             country = selectedCountry,
             changeCountry = { /*TODO*/ },

@@ -3,7 +3,6 @@ package com.karthiksankar.actmobile.ui.country
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
-import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Text
@@ -24,9 +23,7 @@ fun CountryItem(
 ) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .padding(dimensionResource(id = R.dimen.spacing_medium))
-            .then(modifier),
+        modifier = modifier,
     ) {
         Image(
             // TODO Update this with dynamic image resource

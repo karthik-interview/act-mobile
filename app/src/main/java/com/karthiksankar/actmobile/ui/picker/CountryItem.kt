@@ -35,7 +35,7 @@ fun CountryItem(
         Spacer(modifier = Modifier.size(16.dp))
         Text(
             text = country.name,
-            style = MaterialTheme.typography.bodyLarge,
+            style = MaterialTheme.typography.titleMedium,
             modifier = Modifier.weight(1f)
         )
     }

@@ -1,4 +1,4 @@
-package com.karthiksankar.actmobile.viewmodel.country.picker
+package com.karthiksankar.actmobile.viewmodel.country
 
 import com.karthiksankar.actmobile.data.Country
 

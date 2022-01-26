@@ -14,7 +14,7 @@ import com.karthiksankar.actmobile.data.Country
 import com.karthiksankar.actmobile.ui.ActMobileScreen
 
 @Composable
-fun CountryPreferenceScreen(
+fun CountrySettingsScreen(
     selectedCountry: Country,
     modifier: Modifier = Modifier,
 ) {
@@ -38,9 +38,9 @@ fun CountryPreferenceScreen(
 
 @Preview
 @Composable
-private fun PreviewCountryScreen() {
+private fun PreviewCountrySettingsScreen() {
     ActMobileScreen {
-        CountryPreferenceScreen(
+        CountrySettingsScreen(
             Country("IN", "India"),
             Modifier.fillMaxSize()
         )

@@ -12,9 +12,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import com.karthiksankar.actmobile.data.Country
 import com.karthiksankar.actmobile.ui.ActMobileScreen
 import com.karthiksankar.actmobile.ui.country.CountryItem
-import com.karthiksankar.actmobile.viewmodel.country.picker.CountryPickerEvent
-import com.karthiksankar.actmobile.viewmodel.country.picker.CountryPickerEvent.QueryChange
-import com.karthiksankar.actmobile.viewmodel.country.picker.CountryPickerEvent.SelectCountry
+import com.karthiksankar.actmobile.viewmodel.country.CountryPickerEvent
+import com.karthiksankar.actmobile.viewmodel.country.CountryPickerEvent.QueryChange
+import com.karthiksankar.actmobile.viewmodel.country.CountryPickerEvent.SelectCountry
 
 @Composable
 fun CountryPickerScreen(

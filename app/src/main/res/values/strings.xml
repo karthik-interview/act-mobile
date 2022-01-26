@@ -4,4 +4,6 @@
     <string name="title_your_region">YOUR REGION</string>
     <string name="placeholder_search_region">Search your region</string>
     <string name="cd_clear_search">Clear search</string>
+    <string name="empty_search_results">No countries found for \"%1$s\""</string>
+    <string name="action_clear_search">CLEAR SEARCH</string>
 </resources>

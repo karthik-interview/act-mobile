@@ -1,12 +1,16 @@
 package com.karthiksankar.actmobile.ui.country
 
-import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.*
+import androidx.compose.material.Text
+import androidx.compose.material.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.karthiksankar.actmobile.R
@@ -38,13 +42,40 @@ fun CountryPickerScreen(
                 .focusRequester(focusRequester),
         )
 
-        CountriesList(
-            countries = countries,
-            onClick = { country -> eventMachine(SelectCountry(country)) },
-        )
+        if (countries.isNotEmpty()) {
+            CountriesList(
+                countries = countries,
+                onClick = { country -> eventMachine(SelectCountry(country)) },
+            )
+        } else {
+            EmptySearchResults(
+                query = query,
+                clearSearch = { eventMachine(QueryChange("")) },
+                modifier = Modifier.fillMaxWidth()
+            )
+        }
 
         LaunchedEffect(Unit) {
             focusRequester.requestFocus()
+        }
+    }
+}
+
+@Composable
+private fun EmptySearchResults(
+    query: String,
+    clearSearch: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    Column(
+        modifier = modifier,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        verticalArrangement = Arrangement.spacedBy(dimensionResource(id = R.dimen.spacing_medium)),
+    ) {
+        Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.spacing_large)))
+        Text(text = LocalContext.current.getString(R.string.empty_search_results, query))
+        TextButton(onClick = clearSearch) {
+            Text(text = stringResource(id = R.string.action_clear_search))
         }
     }
 }

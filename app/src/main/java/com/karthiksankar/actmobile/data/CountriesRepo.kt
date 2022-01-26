@@ -36,10 +36,6 @@ class CountriesRepo @Inject constructor(
 
     val selectedCountry: MutableState<Country> = mutableStateOf(getCurrentRegion())
 
-    fun getCountryByCode(code: String): Country? {
-        return countries.find { it.code == code }
-    }
-
     fun setCurrentRegion(country: Country) {
         countryPreference.selectedCountryCode = country.code
         selectedCountry.value = country

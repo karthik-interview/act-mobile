@@ -3,7 +3,10 @@ package com.karthiksankar.actmobile.ui.country
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.focus.FocusRequester
+import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import com.karthiksankar.actmobile.R
@@ -23,19 +26,26 @@ fun CountryPickerScreen(
     Column(
         modifier = modifier
     ) {
+        val focusRequester = FocusRequester()
         SearchBox(
             query = query,
             placeholder = stringResource(id = R.string.placeholder_search_region),
             onQueryChange = { query -> eventMachine(QueryChange(query)) },
             clearSearch = { eventMachine(QueryChange("")) },
             onDone = { countries.firstOrNull()?.let { eventMachine(SelectCountry(it)) } },
-            modifier = Modifier.fillMaxWidth(),
+            modifier = Modifier
+                .fillMaxWidth()
+                .focusRequester(focusRequester),
         )
 
         CountriesList(
             countries = countries,
             onClick = { country -> eventMachine(SelectCountry(country)) },
         )
+
+        LaunchedEffect(Unit) {
+            focusRequester.requestFocus()
+        }
     }
 }
 

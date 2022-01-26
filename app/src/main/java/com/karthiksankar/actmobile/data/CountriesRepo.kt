@@ -22,7 +22,11 @@ class CountriesRepo @Inject constructor(
                 val rawData = context.resources.openRawResource(R.raw.countries).bufferedReader()
                     .use { it.readText() }
                 _countries.clear()
-                _countries.addAll(gson.fromJson(rawData, CountriesResponse::class.java).result)
+                _countries.addAll(
+                    gson.fromJson(
+                        rawData,
+                        CountriesResponse::class.java
+                    ).result.sortedBy { it.name })
             }
 
             return _countries

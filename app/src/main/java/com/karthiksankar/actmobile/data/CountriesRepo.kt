@@ -16,7 +16,7 @@ class CountriesRepo @Inject constructor(
     private val gson: Gson,
 ) {
 
-    private val countries: List<Country>
+    val countries: List<Country>
         get() {
             if (_countries.isEmpty()) {
                 val rawData = context.resources.openRawResource(R.raw.countries).bufferedReader()

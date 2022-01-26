@@ -8,6 +8,7 @@ import androidx.navigation.NavGraphBuilder
 import androidx.navigation.compose.composable
 import com.karthiksankar.actmobile.ui.country.CountryPickerScreen
 import com.karthiksankar.actmobile.ui.country.CountrySettingsScreen
+import com.karthiksankar.actmobile.viewmodel.country.CountryPickerVm
 import com.karthiksankar.actmobile.viewmodel.country.CountrySettingsVm
 
 fun NavGraphBuilder.countryGraph(navController: NavController) {
@@ -21,6 +22,11 @@ fun NavGraphBuilder.countryGraph(navController: NavController) {
     }
 
     composable(Screen.CountryPicker.route) {
-        CountryPickerScreen(query = "", countries = listOf(), eventMachine = {})
+        val pickerVm: CountryPickerVm = hiltViewModel()
+        CountryPickerScreen(
+            query = pickerVm.query.value,
+            countries = pickerVm.countries.value,
+            eventMachine = pickerVm::processEvents,
+        )
     }
 }

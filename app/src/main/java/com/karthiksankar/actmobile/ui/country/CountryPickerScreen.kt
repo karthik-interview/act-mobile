@@ -1,14 +1,12 @@
 package com.karthiksankar.actmobile.ui.country
 
-import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.lazy.LazyColumn
-import androidx.compose.foundation.lazy.itemsIndexed
-import androidx.compose.material.Divider
-import androidx.compose.material.TextField
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
+import com.karthiksankar.actmobile.R
 import com.karthiksankar.actmobile.data.Country
 import com.karthiksankar.actmobile.ui.ActMobileScreen
 import com.karthiksankar.actmobile.viewmodel.country.CountryPickerEvent
@@ -22,24 +20,22 @@ fun CountryPickerScreen(
     eventMachine: (CountryPickerEvent) -> Unit,
     modifier: Modifier = Modifier,
 ) {
-    Column(modifier) {
-        TextField(
-            value = query,
-            onValueChange = { query -> eventMachine(QueryChange(query)) },
+    Column(
+        modifier = modifier
+    ) {
+        SearchBox(
+            query = query,
+            placeholder = stringResource(id = R.string.placeholder_search_region),
+            onQueryChange = { query -> eventMachine(QueryChange(query)) },
+            clearSearch = { eventMachine(QueryChange("")) },
+            onDone = { countries.firstOrNull()?.let { eventMachine(SelectCountry(it)) } },
+            modifier = Modifier.fillMaxWidth(),
         )
 
-        LazyColumn {
-            itemsIndexed(
-                items = countries,
-                key = { _, country -> country.code },
-            ) { _, country ->
-                CountryItem(
-                    country = country,
-                    modifier = Modifier.clickable { eventMachine(SelectCountry(country)) },
-                )
-                Divider()
-            }
-        }
+        CountriesList(
+            countries = countries,
+            onClick = { country -> eventMachine(SelectCountry(country)) },
+        )
     }
 }
 

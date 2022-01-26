@@ -26,7 +26,12 @@ fun CountryItem(
         modifier = modifier,
     ) {
         Image(
-            painter = rememberImagePainter(data = country.imageUrl),
+            painter = rememberImagePainter(
+                data = country.imageUrl,
+                builder = {
+                    crossfade(true)
+                },
+            ),
             contentDescription = null,
             modifier = Modifier.size(
                 width = dimensionResource(id = R.dimen.country_image_width),

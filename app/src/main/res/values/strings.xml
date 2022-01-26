@@ -2,4 +2,6 @@
     <string name="app_name">ActMobile</string>
 
     <string name="title_your_region">YOUR REGION</string>
+    <string name="placeholder_search_region">Search your region</string>
+    <string name="cd_clear_search">Clear search</string>
 </resources>

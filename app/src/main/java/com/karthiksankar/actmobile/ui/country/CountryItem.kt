@@ -10,8 +10,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.dimensionResource
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
+import coil.compose.rememberImagePainter
 import com.karthiksankar.actmobile.R
 import com.karthiksankar.actmobile.data.Country
 import com.karthiksankar.actmobile.ui.ActMobileScreen
@@ -26,10 +26,12 @@ fun CountryItem(
         modifier = modifier,
     ) {
         Image(
-            // TODO Update this with dynamic image resource
-            painter = painterResource(id = R.drawable.ic_launcher_background),
+            painter = rememberImagePainter(data = country.imageUrl),
             contentDescription = null,
-            modifier = Modifier.size(dimensionResource(id = R.dimen.country_image_size))
+            modifier = Modifier.size(
+                width = dimensionResource(id = R.dimen.country_image_width),
+                height = dimensionResource(id = R.dimen.country_image_height),
+            )
         )
         Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.spacing_large)))
         Text(

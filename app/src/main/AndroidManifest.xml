@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     package="com.karthiksankar.actmobile">
 
+    <uses-permission android:name="android.permission.INTERNET" />
     <application
         android:name=".ActMobileApp"
         android:allowBackup="true"

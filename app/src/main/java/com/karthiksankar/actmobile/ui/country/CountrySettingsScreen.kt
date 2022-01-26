@@ -1,4 +1,4 @@
-package com.karthiksankar.actmobile.ui.country.preference
+package com.karthiksankar.actmobile.ui.country
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.MaterialTheme
@@ -16,6 +16,7 @@ import com.karthiksankar.actmobile.ui.ActMobileScreen
 @Composable
 fun CountrySettingsScreen(
     selectedCountry: Country,
+    changeCountry: () -> Unit,
     modifier: Modifier = Modifier,
 ) {
     Column(
@@ -30,7 +31,7 @@ fun CountrySettingsScreen(
         Spacer(modifier = Modifier.size(dimensionResource(id = R.dimen.spacing_large)))
         ChosenCountry(
             country = selectedCountry,
-            changeCountry = { /*TODO*/ },
+            changeCountry = changeCountry,
             modifier = Modifier.fillMaxWidth(.75f)
         )
     }
@@ -41,8 +42,9 @@ fun CountrySettingsScreen(
 private fun PreviewCountrySettingsScreen() {
     ActMobileScreen {
         CountrySettingsScreen(
-            Country("IN", "India"),
-            Modifier.fillMaxSize()
+            selectedCountry = Country("IN", "India"),
+            changeCountry = {},
+            modifier = Modifier.fillMaxSize(),
         )
     }
 }

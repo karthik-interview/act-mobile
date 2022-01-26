@@ -20,7 +20,7 @@ class HostActivity : ComponentActivity() {
                     navController = navController,
                     startDestination = Screen.startDestination.route
                 ) {
-                    countryGraph()
+                    countryGraph(navController)
                 }
             }
         }
